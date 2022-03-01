@@ -15,8 +15,7 @@ jobs:
     - run: npm install swaggerhub-cli -g && npm install js-yaml
     # Run other automation here, such as tests or standardization checks
     - run: |
-        export API_VERSION=$(node ./bin/get-version.js) && \
         swaggerhub api:create nousinfosystems/demo-crud-application/1.0.0 --file ././src/main/swagger.json --visibility private
       env:
         SWAGGERHUB_API_KEY: 62da3d51-5d26-47b9-9ab1-962ad4d708fe
-      if: github.ref == 'refs/heads/master'
+    
