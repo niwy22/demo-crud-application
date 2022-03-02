@@ -13,8 +13,7 @@ jobs:
       with:
         node-version: "12.x"
     - run: 
-          npm ci
-          npm install swaggerhub-cli -g 
+               npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
         swaggerhub api:create nousinfosystems/${name}/1.0.2 --file ././${name}.json --visibility private
