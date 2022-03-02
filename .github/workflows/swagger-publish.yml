@@ -20,7 +20,7 @@ jobs:
         npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
-        swaggerhub api:create nousinfosystems/demo-crud-application1/1.0.0 --file ././demo-crud-project.json --visibility public
+        swaggerhub api:create nouggg/demo-crud-application1/1.0.0 --file ././demo-crud-project.json --visibility public
       env:
         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
     
