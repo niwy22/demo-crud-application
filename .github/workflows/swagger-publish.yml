@@ -12,8 +12,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x"
+        
     - run: 
-               npm install swaggerhub-cli -g 
+        npm init
+        npm package
+         npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
         swaggerhub api:create nousinfosystems/${name}/1.0.2 --file ././${name}.json --visibility private
