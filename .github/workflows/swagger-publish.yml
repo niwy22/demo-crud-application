@@ -15,6 +15,7 @@ jobs:
      # PACKAGE APPLICATION
     - run: npm ci
     - run: npm pack
+    - run: npm install
     # PUSH TO SwaggerHUb ok
     - run: 
         npm install swaggerhub-cli -g 
