@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: "12.x"
     - run: 
-          mvn clean install
+          npm clean install
           npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
