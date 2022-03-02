@@ -16,7 +16,7 @@ jobs:
     - run: npm run-script README.md
     - run: npm ci
     - run: npm pack
-    # PUSH TO SwaggerHUb
+    # PUSH TO SwaggerHUb ok
     - run: 
         npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
