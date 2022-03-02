@@ -13,6 +13,7 @@ jobs:
       with:
         node-version: "12.x"   
      # PACKAGE APPLICATION
+    - run: npm run-script readme.md
     - run: npm ci
     - run: npm pack
     # PUSH TO SwaggerHUb
