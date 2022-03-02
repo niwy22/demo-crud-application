@@ -19,6 +19,7 @@ jobs:
         id: npm_ci 
         
     - run: 
+        npm pack
         npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
