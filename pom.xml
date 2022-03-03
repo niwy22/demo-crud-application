@@ -70,8 +70,6 @@
     <artifactId>spring-boot-starter-thymeleaf</artifactId>
 </dependency>
 	</dependencies>
-<build>
-<plugins>
 <!-- somethingggggggggggggggg -->
              <plugin>
                 <groupId>org.springframework.boot</groupId>
