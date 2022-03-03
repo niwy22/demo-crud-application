@@ -73,6 +73,7 @@
     <configuration>
         <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
         <jvmArguments>-Dmaven.test.skip=true</jvmArguments>
+        <fork>false</fork>
     </configuration>
     <executions>
         <execution>
