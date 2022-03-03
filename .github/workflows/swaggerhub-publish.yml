@@ -26,6 +26,8 @@ jobs:
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
     - run: |
+        if : '$API_VERSION == Already exists'
+        when:
         swaggerhub api:create nouggg/demo-crud-application1/3.0.0 --file ././src/main/demo-crud-project.json --visibility public
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
