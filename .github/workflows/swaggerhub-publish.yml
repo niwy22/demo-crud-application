@@ -14,8 +14,7 @@ jobs:
         node-version: "12.x" 
     # validate
     - run: |
-        npm install -g @apidevtools/swagger-cli
-        swagger-cli -v --file ././src/main/demo-crud-project.json
+        npm install -g @apidevtools/swagger-cli && swagger-cli -v --file ././src/main/demo-crud-project.json
     # PUSH TO SwaggerHUb 
     - run: 
         npm install swaggerhub-cli -g 
