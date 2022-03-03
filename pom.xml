@@ -71,8 +71,8 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
     <configuration>
+    	<mainClass>${start-class}</mainClass>
         <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
-        <jvmArguments>-Dmaven.test.skip=true</jvmArguments>
         <fork>false</fork>
     </configuration>
     <executions>
