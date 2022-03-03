@@ -22,5 +22,6 @@ jobs:
         export API_VERSION=$(node https://github.com/niwy22/demo-crud-application.git/src/get-version.js) && swaggerhub api:create nouggg/demo-crud-application1/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
       env:
         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
+      if: github.ref == 'refs/heads/master'
     
     
