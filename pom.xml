@@ -105,7 +105,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
          		
-
 <!-- somethingggggggggggggggg -->
              <plugin>
                 <groupId>org.springframework.boot</groupId>
