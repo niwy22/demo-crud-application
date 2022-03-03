@@ -14,12 +14,13 @@ jobs:
         node-version: "12.x" 
     # validate
     - run: |
-        npm install -g @apidevtools/swagger-cli && swagger-cli validate --no-schema --file ././src/main/demo-crud-project.json
+        npm install -g @apidevtools/swagger-cli && swagger-cli validate -v --file ././src/main/demo-crud-project.json
     # PUSH TO SwaggerHUb 
     - run: 
         npm install swaggerhub-cli -g 
     # Run other automation here, such as tests or standardization checks
     - run: |
+        export API_VERSION=$(node ././src/get-version.js) &&
         swaggerhub api:create nouggg/demo-crud-application1/1.0.0 --file ././src/main/demo-crud-project.json --visibility public
       env:
         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
