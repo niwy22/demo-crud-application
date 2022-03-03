@@ -25,7 +25,7 @@ jobs:
         swaggerhub api:create nouggg/demo-crud-application1/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
       env:
          SWAGGERHUB_API_KEY: ${{ secrets.SWAGGERHUB_API_KEY }}
-      if: github.ref == 'refs/heads/master'
+  
     
     
     
