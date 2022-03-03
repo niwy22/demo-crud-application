@@ -23,11 +23,12 @@ jobs:
     # Run other automation here, such as tests or standardization checks
     - run: |
         swaggerhub api:create nouggg/demo-crud-application1/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public   
-    - run: |
-        swaggerhub api:create nouggg/demo-crud-application1/1.0 --file ././src/main/demo-crud-project.json --visibility public
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
-  
+    - run: |
+        swaggerhub api:create nouggg/demo-crud-application1/3.0.0 --file ././src/main/demo-crud-project.json --visibility public
+      env:
+         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
     
     
     
