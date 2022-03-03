@@ -99,7 +99,7 @@
                 <configuration>
                     <apiDocsUrl>http://0.0.0.0:8080/v2/api-docs</apiDocsUrl>
                     <outputFileName>${project.name}.json</outputFileName>
-                    <outputDir>${project.basedir}</outputDir>
+                    <outputDir>${project.basedir}/src/main</outputDir>
                 </configuration>
             </plugin>  
 </plugins>
