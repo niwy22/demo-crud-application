@@ -68,38 +68,22 @@
 <plugins>
 <!-- somethingggggggggggggggg -->
               <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.6.4</version>
-                <executions>
-                     <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution> 
-                    <execution>
-                        <id>pre-integration-test</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>post-integration-test</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>${start-class}</mainClass>
-                    <fork>true</fork>
-                    <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
-                    
-                   <!--  Enable the line below to have remote debugging of your application on port 5005 -->
-                    <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
-                   
-                </configuration> 
-            </plugin>   
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <version>${spring-boot-maven-plugin.version}</version>
+    <configuration>
+        <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>start</goal>
+                <goal>stop</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+<plugin>
             <plugin>
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-maven-plugin</artifactId>
