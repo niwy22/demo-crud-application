@@ -17,7 +17,7 @@ jobs:
         npm install -g @apidevtools/swagger-cli && swagger-cli validate -v --file ././src/main/demo-crud-project.json
     # PUSH TO SwaggerHUb 
     - run: 
-        npm install swaggerhub-cli -g 
+        npm install swaggerhub-cli -g && npm install js-yaml
     # Run other automation here, such as tests or standardization checks
     - run: |
         export API_VERSION=$(node ././src/get-version.js) &&
