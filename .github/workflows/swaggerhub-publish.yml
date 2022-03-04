@@ -19,8 +19,8 @@ jobs:
     - run: npm install swaggerhub-cli -g
     # Run other automation here, such as tests or standardization checks
     - run: |
-        export API_VERSION=$(node ././pom.xml?version) && \
-        swaggerhub api:create nouggg/niwy-project/$(project-version) --file ././src/main/demo-crud-project.json --visibility public   
+        export API_VERSION=$(project-version) && \
+        swaggerhub api:create nouggg/niwy-project/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public   
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
     - run: | 
