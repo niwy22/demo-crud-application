@@ -17,7 +17,7 @@ jobs:
         node-version: "12.x" 
 
     # PUSH TO SwaggerHUb     
-    - run: npm install swaggerhub-cli -g && npm install --save pom-parser
+    - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install --save-dev eslint@4
            
     # Run other automation here, such as tests or standardization checks
     - run: |
