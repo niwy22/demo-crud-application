@@ -18,6 +18,7 @@ jobs:
 
     # PUSH TO SwaggerHUb     
     - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install --save-dev eslint@4
+           && npm install -g @vue/cli  && npm install -g @vue/cli-service-global
            
     # Run other automation here, such as tests or standardization checks
     - run: |
