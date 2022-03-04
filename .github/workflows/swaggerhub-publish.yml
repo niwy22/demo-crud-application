@@ -17,7 +17,7 @@ jobs:
         node-version: "12.x" 
 
     # PUSH TO SwaggerHUb     
-    - run: npm install swaggerhub-cli -g && npm install js-yaml
+    - run: npm install swaggerhub-cli -g && npm install --save node-pom-parser
            
     # Run other automation here, such as tests or standardization checks
     - run: |
