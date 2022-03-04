@@ -1,12 +1,8 @@
 var pomParser = require("pom-parser");
 var opts = {
-  filePath:  __dirname + "././pom.xml", // The path to a pom file
+  filePath:  "././pom.xml", // The path to a pom file
 };
-pomParser.parse(opts, function(err, pomResponse) {
-  if (err) {
-    console.log("ERROR: " + err);
-    process.exit(1);
-  }
+pomParser.parse(opts, function(pomResponse) {
 
   // The original pom xml that was loaded is provided.
   console.log("XML: " + pomResponse.pomXml);
