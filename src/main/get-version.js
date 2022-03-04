@@ -1,7 +1,4 @@
-const fs = require("fs");
-const yaml = require("js-yaml");
-//const doc = yaml.load(fs.readFileSync("././pom.xml", "utf8"));
-const doc = ext.parsePom({ filePath: ././pom.xml"});
-var version= doc.version;
+var ext = require('pom-parser'); 
+var pom = ext.parsePom({ filePath: "pom.xml"});
+var version = pom.version;
 console.log(version)
-//console.log(root.project.version)
