@@ -10,7 +10,6 @@ pomParser.parse(opts, function(err, pomResponse) {
   }
 
  
-  console.log("XML: " + pomResponse.pomXml);
-  // The parsed pom pbject.
-  console.log("OBJECT: " + JSON.stringify(pomResponse.pomObject));
+  console.log(pomResponse.pomXml.version);
+  
 });
