@@ -1,4 +1,4 @@
 var ext = require('pom-parser'); 
-var pom = ext.parsePom({ filePath: "././pom.xml"});
+var pom = pomParser.parse({ filePath: "././pom.xml"});
 var version = pom.version;
 console.log(version)
