@@ -1,6 +1,4 @@
-var ext = require('pom-parser'); 
-var pom = ext.parse({ filePath: "././pom.xml"});                
-console.log("XML: " + pom.pomXml);
-console.log("OBJECT: " + JSON.stringify(pomResponse.pomObject));
-console.log(project.version);
-
+const fs = require("fs");
+const yaml = require("js-yaml");
+const doc = yaml.load(fs.readFileSync("././pom.xml", "utf8"));
+console.log(doc.project.version)
