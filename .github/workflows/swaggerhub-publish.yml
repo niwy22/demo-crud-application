@@ -15,6 +15,16 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
+        
+    - uses: avides/actions-project-version-check@latest
+      id: actions_project_version_check
+       with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+         file-to-check: ././pom.xml
+
+    - name: use-version-from-check
+    - run: echo ${{ steps.actions_project_version_check.outputs.version }}
+    
     # PUSH TO SwaggerHUb     
     - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install js-yaml
            
