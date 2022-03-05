@@ -15,15 +15,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
-        #############
-    - uses: avides/actions-project-version-check@latest
-      id: actions_project_version_check
-      with:
-          token: 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
-           file-to-check:https://github.com/niwy22/demo-crud-application.git/pom.xml
-
-    - name: use-version-from-check
-    - run: echo ${{ steps.actions_project_version_check.outputs.version }}
     
     # PUSH TO SwaggerHUb     
     - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install js-yaml
@@ -31,7 +22,7 @@ jobs:
     # Run other automation here, such as tests or standardization checks
     - run: |
         #export API_VERSION=$(node ././src/main/get-version.js) && \ 
-        VERSION=$(mvn install project.version -q -DforceStdout ) &&
+        export VERSION=$(mvn install project.version -q -DforceStdout ) &&
         swaggerhub api:create nouggg/niwy-project/$VERSION --file ././src/main/demo-crud-project.json --visibility public   
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
