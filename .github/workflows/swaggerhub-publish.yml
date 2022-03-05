@@ -15,12 +15,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
-        
+        #############
     - uses: avides/actions-project-version-check@latest
       id: actions_project_version_check
       with:
           token: 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
-           file-to-check:pom.xml
+           file-to-check:https://github.com/niwy22/demo-crud-application.git/pom.xml
 
     - name: use-version-from-check
     - run: echo ${{ steps.actions_project_version_check.outputs.version }}
