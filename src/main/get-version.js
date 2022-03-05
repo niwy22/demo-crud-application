@@ -1,6 +1,6 @@
 var convert = require('xml-js');
 ignoreUndefined = true;
-var xml = require('fs').readFileSync('C:/Users/niweditar/Videos/demo-crud-application/pom.xml', 'utf8');
+var xml = require('fs').readFileSync('././pom.xml', 'utf8');
 
 var result = convert.xml2json(xml, {compact: true, spaces: 4});
 console.log(result);
