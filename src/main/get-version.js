@@ -16,6 +16,6 @@ pomParser.parse(opts, function(err, pomResponse) {
   // The parsed pom pbject.
   var json=JSON.stringify(pomResponse.pomObject);
   var store=json
-  console.log(store)
+  console.log(store.project)
   
 });
