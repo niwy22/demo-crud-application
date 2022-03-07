@@ -4,7 +4,7 @@ const parser = new xml2js.Parser({ attrkey: "ATTR" });
 
 // this example reads the file synchronously
 // you can read it asynchronously also
-let xml_string = fs.readFileSync("././pom.xml", "utf8");
+let xml_string = fs.readFileSync("C:/Users/niweditar/Videos/demo-crud-application/pom.xml", "utf8");
 var con1
 parser.parseString(xml_string, function(error, result) {
     if(error === null) {
@@ -15,4 +15,7 @@ parser.parseString(xml_string, function(error, result) {
         console.log(error);
     }
 });
-console.log(con1);
+
+var json=JSON.stringify(con1)
+console.log(json);
+
