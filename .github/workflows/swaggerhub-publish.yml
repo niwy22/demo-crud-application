@@ -22,9 +22,7 @@ jobs:
     # Run other automation here, such as tests or standardization checks
     - run: |
         export API_VERSION=$(node ././bin/readfile.js) &&
-        #Create API
-        swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public  
-        #update Api
+        #create Api
         swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         #Make the API default
          swaggerhub api:setdefault "nouggg/demo-crud-application/$API_VERSION"
