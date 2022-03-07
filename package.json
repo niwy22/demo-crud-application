@@ -1,0 +1,102 @@
+{
+  "name": "swaggerhub-cli",
+  "description": "SwaggerHub CLI",
+  "version": "0.6.1",
+  "author": "SmartBear",
+  "bin": {
+    "swaggerhub": "./bin/run"
+  },
+  "bugs": "https://github.com/SmartBear/swaggerhub-cli/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.16",
+    "@oclif/config": "^1.17.0",
+    "@oclif/errors": "^1.3.5",
+    "@oclif/plugin-help": "^3.3.1",
+    "@oclif/plugin-plugins": "^2.0.11",
+    "cli-ux": "^5.6.3",
+    "deep-extend": "^0.6.0",
+    "fs-extra": "^10.0.0",
+    "inquirer": "^8.1.0",
+    "js-yaml": "^4.1.0",
+    "json-templates": "^4.1.0",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "@oclif/test": "^1.2.8",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.28.0",
+    "eslint-plugin-chai-friendly": "^0.7.1",
+    "eslint-plugin-immutable": "^1.0.0",
+    "eslint-plugin-mocha": "^9.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint_d": "^10.1.3",
+    "globby": "^11.0.3",
+    "husky": "^6.0.0",
+    "mocha": "^9.1.3",
+    "nock": "^13.1.0",
+    "nyc": "^15.1.0",
+    "rewire": "^6.0.0",
+    "tmp": "^0.2.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/SmartBear/swaggerhub-cli",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "hooks": {
+      "init": "./src/hooks/setup-config"
+    },
+    "bin": "swaggerhub",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "configDefaults": {
+      "SWAGGERHUB_URL": "https://api.swaggerhub.com"
+    },
+    "topics": {
+      "api": {
+        "description": "this topic supports the management of APIs"
+      },
+      "domain": {
+        "description": "this topic supports the management of Domains"
+      },
+      "integration": {
+        "description": "this topic supports the management of Integrations"
+      },
+      "projects": {
+        "description": "this topic supports the management of Projects"
+      }
+    },
+    "helpClass": "./src/help"
+  },
+  "repository": "SmartBear/swaggerhub-cli",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "oclif-dev manifest",
+    "test": "nyc mocha --forbid-only \"test/**/*.test.js\"",
+    "lint": "eslint_d ./src ./test",
+    "postinstall": "node ./src/check-node-version"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test"
+    }
+  }
+}
