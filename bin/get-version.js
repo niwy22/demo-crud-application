@@ -17,6 +17,7 @@ pomParser.parse(opts, function(err, pomResponse) {
   var json=JSON.stringify(pomResponse.pomObject);
   var store=json
   console.log(store)
+  console.log(store.project.version)
   //console.log(store.project.version)
   fs.writeFile('./src/main/test.yaml', store, err => {
   if (err) {
