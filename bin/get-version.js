@@ -17,12 +17,11 @@ pomParser.parse(opts, function(err, pomResponse) {
   var json=JSON.stringify(pomResponse.pomObject);
   var store=json
   console.log(store)
-  console.log(store.project.version)
   //console.log(store.project.version)
   fs.writeFile('./src/main/test.yaml', store, err => {
   if (err) {
-    console.error(err)
-    return store
+    console.error(err);
+    console.log('Updated!');
   }
   //file written successfully
 })
