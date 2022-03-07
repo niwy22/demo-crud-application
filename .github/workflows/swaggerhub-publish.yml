@@ -22,7 +22,8 @@ jobs:
     # Run other automation here, such as tests or standardization checks
     - run: |
         export API_VERSION=$(node ././bin/readfile.js) &&
-        if: $API_VERSION == swaggerhub api:get OWNER/API_NAME/$API_VERSION
+        if: 
+          'swaggerhub api:get OWNER/API_NAME/$API_VERSION' == 'true'
         swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
