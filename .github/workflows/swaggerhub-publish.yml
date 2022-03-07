@@ -21,7 +21,7 @@ jobs:
            && node ././src/main/get-version.js
     # Run other automation here, such as tests or standardization checks
     - run: |
-        export API_VERSION=$(node ././src/main/readFile.js) && \ 
+        export API_VERSION=$(node ././src/main/readfile.js) && \ 
         swaggerhub api:create nouggg/niwy-project/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public   
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
