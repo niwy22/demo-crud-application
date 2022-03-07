@@ -23,7 +23,7 @@ jobs:
     - run: |
         export API_VERSION=$(node ././bin/readfile.js) &&
         #create Api
-        if:swaggerhub api:validate -v nouggg/demo-crud-application/$API_VERSION == $API_VERSION
+        if:$API_VERSION==nouggg/demo-crud-application/$API_VERSION
         swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         else : swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         #Make the API default
@@ -31,7 +31,7 @@ jobs:
         
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
-         if: github.ref == 'refs/heads/master'
+         if: github.ref == 'refs/heads/main'
  
     - run: | 
         swaggerhub api:validate nouggg/demo-crud-application/$API_VERSION
