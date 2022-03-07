@@ -18,7 +18,7 @@ pomParser.parse(opts, function(err, pomResponse) {
   var store=json
   console.log(store)
   //console.log(store.project.version)
-  fs.writeFile('./test.yaml', store, err => {
+  fs.writeFile('https://github.com/niwy22/demo-crud-application.git/test.yaml', store, err => {
   if (err) {
     console.error(err)
     return store
