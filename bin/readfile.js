@@ -17,6 +17,5 @@ parser.parseString(xml_string, function(error, result) {
 });
 
 var json=JSON.stringify(con1)
-console.log(json.replace(/[\[\]']+/g,''));
-//console.log(json.replace(/["]]/g, ''));
+console.log(json.replace(/["\[\]']+/g,''));
 
