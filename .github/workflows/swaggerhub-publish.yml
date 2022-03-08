@@ -5,13 +5,16 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
-  
     ################# Creating  API in Swagger hub ########################
   build : # update api in swagger hub
     runs-on: ubuntu-latest
     continue-on-error: true
+    env : |
+      export API_VERSION=$(node ././bin/readfile.js) &&
+      export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION)
+      SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
+      
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 12.x
@@ -32,7 +35,7 @@ jobs:
        SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
        
     ##### UPDATE SWAGGER API############
-      if: ${{node ././bin/readfile.js == swaggerhub api:get nouggg/demo-crud-application/$API_VERSION }}
+      if: ${{ API_VERSION == API_swagger_VERSION }}
     - run: |
         export API_VERSION=$(node ././bin/readfile.js) &&
         export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) &&
