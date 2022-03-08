@@ -24,8 +24,7 @@ jobs:
     
     # PUSH TO SwaggerHUb     
           
-    - run: |
-        npm install swaggerhub-cli -g && npm install fs && npm install xml2js 
+    - run: npm install swaggerhub-cli -g && npm install js-yaml && npm install xml2js 
     # Run other automation here, such as tests or standardization check
        
     ##### UPDATE SWAGGER API############
