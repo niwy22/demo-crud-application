@@ -26,13 +26,13 @@ jobs:
            && npm install fs && npm install xml2js 
     # Run other automation here, such as tests or standardization checksffff
     - run: |
-        export API_VERSION=$(node ././bin/readfile.js) &&
-        export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) 
+        var API_VERSION=$(node ././bin/readfile.js) &&
+        var API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) 
       env:
        SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
        
     ##### UPDATE SWAGGER API############
-      if: node ././bin/readfile.js == swaggerhub api:get nouggg/demo-crud-application/$API_VERSION
+      if: API_VERSION == API_swagger_VERSION
     - run: |
         export API_VERSION=$(node ././bin/readfile.js) &&
         export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) &&
