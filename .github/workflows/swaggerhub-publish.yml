@@ -20,9 +20,7 @@ jobs:
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: "12.x" 
-        
-    # Run other automation here, such as tests or standardization check    
+        node-version: "12.x"   
     - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
            && npm install fs && npm install xml2js
      
