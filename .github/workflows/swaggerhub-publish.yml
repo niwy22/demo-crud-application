@@ -23,7 +23,7 @@ jobs:
         node-version: "12.x" 
         
     # Run other automation here, such as tests or standardization check    
-    - run: npm install swaggerhub-cli -g && npm install fs && npm install xml2js
+    - run: npm install swaggerhub-cli -g
      
     ##### UPDATE SWAGGER API############
       if: ${{ env.API_VERSION == env.API_swagger_VERSION }}
