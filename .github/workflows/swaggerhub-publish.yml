@@ -9,7 +9,7 @@ on:
 jobs:
   
     ################# Creating  API in Swagger hub ########################
-  build-1:
+  build-1: # create api in swagger hub
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -36,7 +36,7 @@ jobs:
          
          
      ################# Updating API in Swagger hub ########################
-  build-2: 
+  build-2:  # update api in swagger hub
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
