@@ -12,8 +12,8 @@ jobs:
     continue-on-error: true  
     env: 
         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
-        API_VERSION: $(node ././bin/readfile.js)
-        API_swagger_VERSION: $(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION)
+        API_VERSION: ${{ node ././bin/readfile.js}}
+        API_swagger_VERSION: ${{ swaggerhub api:get nouggg/demo-crud-application/$API_VERSION}}
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 12.x
