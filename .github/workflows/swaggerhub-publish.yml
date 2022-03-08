@@ -37,16 +37,12 @@ jobs:
     ##### UPDATE SWAGGER API############
       if: ${{ env.API_VERSION == env.API_swagger_VERSION }}
     - run: |
-        export API_VERSION=$(node ././bin/readfile.js) &&
-        export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) &&
-        swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
-        swaggerhub api:setdefault nouggg/demo-crud-application/$API_VERSION
-      env:
-          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f 
-        
+        swaggerhub api:update nouggg/demo-crud-application/env.API_VERSION --file ././src/main/demo-crud-project.json --visibility public
+        swaggerhub api:setdefault nouggg/demo-crud-application/env.API_VERSION 
+      if: ${{ env.API_VERSION !== env.API_swagger_VERSION }} 
     - run: |
-        swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
-        swaggerhub api:setdefault "nouggg/demo-crud-application/$API_VERSION"
+        swaggerhub api:create nouggg/demo-crud-application/env.API_VERSION --file ././src/main/demo-crud-project.json --visibility public
+        swaggerhub api:setdefault "nouggg/demo-crud-application/env.API_VERSION"
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
        
