@@ -39,7 +39,7 @@ jobs:
     - run: |
         swaggerhub api:update nouggg/demo-crud-application/env.API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         swaggerhub api:setdefault nouggg/demo-crud-application/env.API_VERSION 
-      if: ${{ env.API_VERSION !== env.API_swagger_VERSION }} 
+      if: ${{ env.API_VERSION != env.API_swagger_VERSION }} 
     - run: |
         swaggerhub api:create nouggg/demo-crud-application/env.API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         swaggerhub api:setdefault "nouggg/demo-crud-application/env.API_VERSION"
