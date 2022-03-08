@@ -30,7 +30,7 @@ jobs:
         export API_VERSION=$(node ././bin/readfile.js) &&
         export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION$(version)) &&
         
-        swaggerhub api:update nouggg/demo-crud-application/$API_VERSION($version) --file ././src/main/demo-crud-project.json --visibility public
+        swaggerhub api:update nouggg/demo-crud-application/$API_VERSION$version --file ././src/main/demo-crud-project.json --visibility public
         swaggerhub api:setdefault nouggg/$NAME/$API_VERSION --file ././src/main/demo-crud-project.json
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
