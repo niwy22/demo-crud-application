@@ -7,6 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
+    ################# Creating  API in Swagger hub ########################
   build:
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +28,9 @@ jobs:
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
          if: $API_VERSION !== $API_swagger_VERSION
+         
+         
+     ################# Updating API in Swagger hub ########################
   display:
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +39,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
-    - run : swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
+    - run : |
+        export API_VERSION=$(node ././bin/readfile.js) &&
+        export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) &&
+        swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
       
       env:
          SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
