@@ -2,11 +2,10 @@ name: API CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main,dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ main,dev ]
 jobs:
-    ################# Creating  API in Swagger hub ########################
   build : # update api in swagger hub
     runs-on: ubuntu-latest
     continue-on-error: true  
@@ -17,10 +16,10 @@ jobs:
       with:
         node-version: "12.x" 
     
-    # PUSH TO SwaggerHub    
-    - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
-           && npm install fs && npm install xml2js && npm install js-yaml  
-    ##### checking SWAGGER API#############
+    # Required installation   
+    - run: npm install swaggerhub-cli -g && npm install fs && npm install xml2js && npm install js-yaml  
+    
+    ##### validating SWAGGER API Implemenation #############
     - run: 
         export API_VERSION=$(node ././bin/readfile.js) &&
         swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
@@ -30,7 +29,7 @@ jobs:
         
       env: 
           SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
-          if: github.ref == 'refs/heads/main'
+          
   
   
           
