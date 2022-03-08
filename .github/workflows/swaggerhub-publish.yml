@@ -20,29 +20,17 @@ jobs:
     # PUSH TO SwaggerHub    
     - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
            && npm install fs && npm install xml2js && npm install js-yaml  
-    ##### UPDATE SWAGGER API#############
-      env: 
-         SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
-         API_VERSION: $( node ././bin/readfile.js)
-         API_swagger_VERSION: $( swaggerhub api:get nouggg/demo-crud-application/$API_VERSION)
-        
-    - if: ${{ env.API_VERSION == env.API_swagger_VERSION }}
-      run: 
+    ##### checking SWAGGER API#############
+    - run: 
         export API_VERSION=$(node ././bin/readfile.js) &&
         swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
-        && swaggerhub api:setdefault nouggg/demo-crud-application/$API_VERSION || swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
+       || swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
+        
         && swaggerhub api:setdefault "nouggg/demo-crud-application/$API_VERSION"
       env: 
           SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
   
   
-    - if: ${{ env.API_VERSION != env.API_swagger_VERSION }} 
-      run: |
-        export API_VERSION=$(node ././bin/readfile.js) &&
-        swaggerhub api:create nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
-        && swaggerhub api:setdefault "nouggg/demo-crud-application/$API_VERSION"
-      env: 
-        SWAGGERHUB_API_KEY: 4894a72a-3f04-4461-9ceb-31564ae7206f
           
        
     
