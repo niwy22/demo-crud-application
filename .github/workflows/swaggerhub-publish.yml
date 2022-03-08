@@ -6,13 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
-jobs:
+jobs: #1
     ################# Creating  API in Swagger hub ########################
   build:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - uses: actions/checkout@v2
-      continue-on-error: true
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
@@ -35,7 +35,7 @@ jobs:
          
          
      ################# Updating API in Swagger hub ########################
-  display:
+  jobs: #2
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
