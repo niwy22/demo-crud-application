@@ -21,12 +21,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x"   
-    - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
-           && npm install fs && npm install xml2js
-     
     ##### UPDATE SWAGGER API############
       if: ${{ env.API_VERSION == env.API_swagger_VERSION }}
     - run: |
+        npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
+        && npm install fs && npm install xml2js &&
         export API_VERSION=$(node ././bin/readfile.js) &&
         swaggerhub api:update nouggg/demo-crud-application/$API_VERSION --file ././src/main/demo-crud-project.json --visibility public
         swaggerhub api:setdefault nouggg/demo-crud-application/$API_VERSION 
