@@ -21,12 +21,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
-    
-    # PUSH TO SwaggerHUb     
-          
-    - run: npm install swaggerhub-cli -g && npm install js-yaml && npm install xml2js 
-    # Run other automation here, such as tests or standardization check
-       
+        
+    # Run other automation here, such as tests or standardization check    
+    - run: npm install swaggerhub-cli -g && npm install fs && npm install xml2js
+     
     ##### UPDATE SWAGGER API############
       if: ${{ env.API_VERSION == env.API_swagger_VERSION }}
     - run: |
