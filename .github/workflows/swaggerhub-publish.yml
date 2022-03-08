@@ -39,6 +39,7 @@ jobs:
      ################# Updating API in Swagger hub ########################
   build-2:  # create api in swagger hub
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 12.x
