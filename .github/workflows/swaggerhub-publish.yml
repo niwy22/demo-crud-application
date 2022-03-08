@@ -18,7 +18,10 @@ jobs:
         node-version: "12.x" 
     
     # PUSH TO SwaggerHUb     
-    - run: npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
+          
+    - run: 
+     ############### Checking in Swagger hub if the API exist  ################
+          npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
            && npm install fs && npm install xml2js 
     # Run other automation here, such as tests or standardization checksffff
     - run: |
@@ -39,6 +42,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: "12.x" 
+        
+    - run: 
+        ############### Checking in Swagger hub if the API exist  ################
+          npm install swaggerhub-cli -g && npm install --save pom-parser && npm install xml-js
+           && npm install fs && npm install xml2js 
     - run : |
         export API_VERSION=$(node ././bin/readfile.js) &&
         export API_swagger_VERSION=$(swaggerhub api:get nouggg/demo-crud-application/$API_VERSION) &&
