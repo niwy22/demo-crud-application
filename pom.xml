@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.spring.project</groupId>
 	<artifactId>demo-crud-project</artifactId>
-	<version>7.0</version>
+	<version>2.0</version>
 	<name>demo-crud-project</name>
 	<description>Basic Spring CRUD operations</description>
 	<properties>
@@ -104,7 +104,7 @@
                 <configuration>
                     <apiDocsUrl>http://0.0.0.0:8080/v2/api-docs</apiDocsUrl>
                     <outputFileName>${project.name}.json</outputFileName>
-                    <outputDir>${project.basedir}/src/main</outputDir>
+                    <outputDir>${project.basedir}/src/main/resources/api</outputDir>
                 </configuration>
             </plugin>  
 </plugins>
