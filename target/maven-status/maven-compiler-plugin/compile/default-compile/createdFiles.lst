@@ -1,0 +1,5 @@
+com\spring\project\repository\ProductRepo.class
+com\spring\project\SpringCrudProjectApplication.class
+com\spring\project\controller\ProductController.class
+com\spring\project\service\ProductService.class
+com\spring\project\entity\Product.class
