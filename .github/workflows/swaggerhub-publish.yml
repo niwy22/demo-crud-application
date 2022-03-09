@@ -18,7 +18,7 @@ jobs:
     # Required installation   
     - run: npm install swaggerhub-cli -g && npm install fs && npm install xml2js && npm install js-yaml  
     
-    ##### validating SWAGGER API Implemenation #############
+    ##### validating SWAGGER API Implemenation ##############
     - run: 
         export API_VERSION=$(node ././bin/readfile.js) &&
         swaggerhub api:update nouggg/${GITHUB_REPOSITORY#*/}/$API_VERSION --file ././src/main/resources/api/demo-crud-project.json --visibility public
