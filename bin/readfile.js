@@ -18,4 +18,3 @@ parser.parseString(xml_string, function(error, result) {
 });
 
 var version=console.log(version);
-//var name=console.log(name);
