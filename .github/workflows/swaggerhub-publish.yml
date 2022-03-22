@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: "12.x" 
     
-    # Required installation 
+    # Required installationnn
     - run: npm install swaggerhub-cli -g && npm install fs && npm install xml2js && npm install js-yaml  
     # run
     - run: 
