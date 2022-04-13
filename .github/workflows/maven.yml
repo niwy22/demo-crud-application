@@ -11,9 +11,12 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    env : 
+      token_id : 4894a72a-3f04-4461-9ceb-31564ae7206f
+      organization : nouggg
+      swaggerhub_host : api.swaggerhub.com
+      
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -23,17 +26,37 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name : Extract version
-      run: mvn help:evaluate -Dexpression=project.version -q -DforceStdout
+      id: vars
+      run: |
+         echo ::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+    - name: Swaggerresponse
+      run: echo ${{ steps.vars.outputs.version }} 
+      
+    - name : Extract project name
+      id: name
+      run: |
+         echo ::set-output name=version::$(mvn help:evaluate -Dexpression=project.name -q -DforceStdout)
+    - name: Swaggerresponse
+      run: echo ${{ steps.name.outputs.version }} 
+      
+
+     ### To Update/Create version if any changes happens in Dev Branch ###
+
+      ### To Update/Create version if any changes happens in Dev Branch ###
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml -Dswagger.org=${{env.organization}} -Dswagger.token=${{env.token_id}}
+      if: github.ref == 'refs/heads/dev'
+     
+     ### To Publish the version if changes are Pushed to Main Branch ###
     - name : Publish version
       uses: fjogeleit/http-request-action@v1
       id: swaggereq
       with:
-        url: 'https://api.swaggerhub.com/apis/POC-MG_1/devops-demo-maven'
-        method: 'GET'
-        bearerToken: '5ce4a89d-4d60-4248-ba8f-457f18cc2156'
+        url: 'https://${{env.swaggerhub_host}}/apis/${{env.organization}}/${{ steps.name.outputs.version}}/${{ steps.vars.outputs.version }}/settings/lifecycle?force=true'
+        data: '{"published": true}'
+        method: 'PUT'
+        bearerToken: '${{env.token_id}}'
       if: github.ref == 'refs/heads/main'
     - name: Swaggerresponse
       run: echo ${{ steps.swaggereq.outputs.response }}
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dswagger.org=POC-MG_1 -Dswagger.token=5ce4a89d-4d60-4248-ba8f-457f18cc2156
-      
