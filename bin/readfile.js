@@ -16,5 +16,5 @@ parser.parseString(xml_string, function(error, result) {
         console.log(error);
     }
 });
-
 var version=console.log(version);
+
