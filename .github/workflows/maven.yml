@@ -40,7 +40,7 @@ jobs:
       run: echo ${{ steps.name.outputs.version }} 
       
 
-     ### To Update/Create version if any changes happens in Dev Branch ###
+     ### ##To Update/Create version if any changes happens in Dev Branch ###
 
       ### To Update/Create version if any changes happens in Dev Branch ###
 
